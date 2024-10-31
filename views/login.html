@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PassGuard</title>
+    <script src="../scripts/development.js" defer></script>
+    <script src="../scripts/login.js" defer></script>
+    <link rel="stylesheet" href="../styles/loginAndReg.css">
+</head>
+<body>
+    <div id="container">
+        <h1>Login</h1>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input name="username" type="text">
+            <label for="password">Password:</label>
+            <input name="password" type="password">
+            <button type="button" id="loginBtn">Login</button>
+        </form>
+        <div class="err-container">
+            <p id="errorMsg"></p>
+            <button class="openDevTools">D</button>
+        </div>
+    </div>
+</body>
+</html>

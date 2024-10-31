@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PassGuard</title>
+    <script src="../scripts/development.js" defer></script>
+    <script src="../scripts/register.js" defer></script>
+    <link rel="stylesheet" href="../styles/loginAndReg.css">
+</head>
+<body>
+    <div id="container">
+        <h1>Create a new Account</h1>
+        <form id="registrationForm">
+            <label for="username">Username:</label>
+            <input name="username" type="text" id="usernameInput">
+            <label for="password">Password:</label>
+            <input name="password" type="text" id="passwordInput">
+            <label for="repeatPassword">Repeat Password:</label>
+            <input name="repeatPassword" type="text" id="repeatPasswordInput">
+            <button type="button" id="randomPass">Fill in random password.</button>
+            <button type="button" id="createAccBtn">Create Account</button>
+        </form>
+        <div class="err-container">
+            <p id="errorMsg"></p>
+            <button class="openDevTools">D</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "9e519b84-ba7a-4dc9-a90d-56253e6b2d70",
+    "title": "www.abv.bg",
+    "username": "alex",
+    "password": {
+      "value": "IoBFxmHGY1jjgyF/RNGI1/Q=",
+      "iv": "JjFdrtxMaK3X3/21",
+      "tag": "R+ex504pKDIXcNIS+wAq2g=="
+    }
+  },
+  {
+    "id": "557c78a7-91e4-4732-83af-173f87a89bce",
+    "title": "www.somewebsite.com",
+    "username": "user23334",
+    "password": {
+      "value": "u7DtCMD8FXrGng4bt/c=",
+      "iv": "IfwKAtTnx2QIiKYa",
+      "tag": "MDA7t0dEhPA692tiyUA5Zg=="
+    }
+  }
+]

@@ -1,0 +1,102 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PassGuard</title>
+    <script src="../scripts/development.js" defer></script>
+    <script src="../scripts/nav.js" defer></script>
+    <script src="../scripts/logout.js" defer></script>
+    <script src="../scripts/addCred.js" defer></script>
+    <link rel="stylesheet" href="../styles/addCreds.css">
+</head>
+<body>
+    <h1>Add New Credentials</h1>
+    <nav>
+        <ul>
+            <li><a href="#" id="navToHome">Home</a></li>
+            <li><a href="#" id="navToAddCred" class="active">Add New Credentials</a></li>
+            <li><a href="#" id="navToSettings">Settings</a></li>
+            <li><a href="#" id="logoutBtn">Logout</a></li>
+        </ul>
+    </nav>
+    <form id="addCredForm">
+        <label for="title">Title:</label>
+        <input name="title" type="text">
+        
+        <label for="username">Username:</label>
+        <input name="username" type="text">
+        
+        <label for="password">Password:</label>
+        <input name="password" type="text">
+        
+        <label for="repass">Repeat Password:</label>
+        <input name="repass" type="text">
+        
+        <button type="button" id="addCredBtn">Add Credential</button>
+        <button>Generate password</button>
+        <div>
+            <p id="errorMsg">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+    </form>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PassGuard</title>
+    <script src="../scripts/development.js" defer></script>
+    <script src="../scripts/nav.js" defer></script>
+    <script src="../scripts/logout.js" defer></script>
+    <script src="../scripts/addCred.js" defer></script>
+    <script src="../scripts/genPass.js" defer></script>
+    <link rel="stylesheet" href="../styles/addCreds.css">
+</head>
+<body>
+    <h1>Add New Credentials</h1>
+    <nav>
+        <ul>
+            <li><a href="#" id="navToHome">Home</a></li>
+            <li><a href="#" id="navToAddCred" class="active">Add New Credentials</a></li>
+            <li><a href="#" id="navToSettings">Settings</a></li>
+            <li><a href="#" id="logoutBtn">Logout</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Error Message on the Top Right -->
+    <div>
+        <p id="errorMsg"></p>
+    </div>
+
+    <div id="addingCredsContainer">
+        <!-- Form for Adding Credentials -->
+        <form id="addCredForm" class="form">
+            <label for="title" class="secondTitles">Add credentials</label>
+            <label for="title">Title:</label>
+            <input name="title" type="text">
+            
+            <label for="username">Username:</label>
+            <input name="username" type="text">
+            
+            <label for="password">Password:</label>
+            <input name="password" type="text">
+            
+            <button type="button" id="addCredBtn">Add Credential</button>
+        </form>
+    
+        <form id="passGenForm" class="form">
+            <label for="passLength" class="secondTitles">Generate random password</label>
+            <label for="passLength">Length:</label>
+            <input name="passLength" type="text">
+            
+            <label for="charsToExclude">Characters to exclude when generating:</label>
+            <input name="charsToExclude" type="text">
+    
+            <button id="genPassBtn" type="button">Generate password</button>
+        </form>
+    </div>
+
+</body>
+</html>

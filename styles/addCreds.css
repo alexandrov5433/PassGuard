@@ -1,0 +1,184 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #1a1a40; /* Dark blue shade */
+    color: #f0f0f0;
+    height: 100vh;
+    padding: 0 20px;
+}
+
+/* Header and Navigation */
+h1 {
+    font-size: 2rem;
+    color: #ffffff;
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    margin-bottom: 20px;
+}
+
+nav {
+    position: fixed;
+    top: 60px;
+    left: 20px;
+    background-color: #2c2c54;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    flex-grow: 1; /* Ensure all nav items have equal width */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ccccff;
+    padding: 10px;
+    background-color: #4d4dff;
+    border-radius: 8px;
+    text-align: center;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #6666ff;
+}
+
+/* Highlight the current page */
+nav ul li a.active {
+    background-color: #ff6347; /* Orange-redish color */
+}
+
+/* Error message container on top right */
+#errorMsg {
+    position: fixed;
+    top: 60px;
+    right: 20px; /* Align with the right margin */
+    background-color: #ff4747;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    display: none; /* Hidden by default */
+    max-width: 300px;
+    z-index: 100; /* Make sure it is on top of other elements */
+}
+
+input.error:focus {
+    box-shadow: 0 0 10px #ff5d5d;
+}
+input.error {
+    box-shadow: 0 0 10px #ff5d5d;
+}
+
+/* Form styling */
+
+#passGenForm {
+    top: 380px;
+}
+
+.form {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    background-color: #2c2c54;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.form label {
+    color: #ccccff;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form input[type="text"] {
+    background-color: #444477;
+    color: #ffffff;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.form input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px #5555ff;
+}
+
+.form button {
+    background-color: #4d4dff;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+    background-color: #6666ff;
+}
+
+/* Responsive design */
+@media (max-width: 500px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    .form {
+        width: auto;
+    }
+
+    #errorMsg {
+        right: 10px;
+        max-width: 90%; /* Adjust error container size for smaller screens */
+    }
+}
+
+#addingCredsContainer {
+    position: absolute;
+    top: 160px; /* Adds the same space as between h1 and nav */
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    overflow-y: auto; /* Vertical scrolling */
+    padding: 20px;
+    background-color: #2c2c54;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Scrollbar styling */
+#addingCredsContainer::-webkit-scrollbar {
+    width: 8px;
+}
+
+#addingCredsContainer::-webkit-scrollbar-thumb {
+    background-color: #5555ff;
+    border-radius: 10px;
+}
+
+.form .secondTitles {
+    color: #ff8b77;
+    font-size: 25px;
+}
