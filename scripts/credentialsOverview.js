@@ -35,7 +35,8 @@ async function loadCredOverview() {
 }
 
 async function viewPassToggle(e) {
-    const div = e.currentTarget.parentElement.parentElement;
+    const button = e.currentTarget;
+    const div = button.parentElement.parentElement;
     const credId = div.dataset.credid;
     const inputEl = div.querySelector('div.info input[name="password"]');
     const currentType = inputEl.getAttribute('type');
@@ -43,12 +44,16 @@ async function viewPassToggle(e) {
         inputEl.setAttribute('type', 'password');
         inputEl.setAttribute('value', '1111111111111111111111111');
         inputEl.value = '1111111111111111111111111';
+        button.textContent = 'View Password';
+        button.classList.remove('important-btn');
     } else if (currentType === 'password') {
         try {
             const passPlainText = await preloads.fetchPassPlainText(credId);
             inputEl.setAttribute('type', 'text');
             inputEl.setAttribute('value', passPlainText);
             inputEl.value = passPlainText;
+            button.textContent = 'Hide Password';
+            button.classList.add('important-btn');
         } catch (err) {
             console.error(err);
             displayErrorMsg(err.message);
