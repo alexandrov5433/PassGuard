@@ -75,24 +75,24 @@
         <form id="addCredForm" class="form">
             <label for="title" class="secondTitles">Add credentials</label>
             <label for="title">Title:</label>
-            <input name="title" type="text">
+            <input name="title" type="text" placeholder="www.someWebsite.org">
             
             <label for="username">Username:</label>
-            <input name="username" type="text">
+            <input name="username" type="text" placeholder="myUsername123">
             
             <label for="password">Password:</label>
-            <input name="password" type="text">
+            <input name="password" type="text" placeholder="secretPassword123">
             
             <button type="button" id="addCredBtn">Add Credential</button>
         </form>
-    
+        <!-- Form for password generation -->
         <form id="passGenForm" class="form">
             <label for="passLength" class="secondTitles">Generate random password</label>
             <label for="passLength">Length:</label>
-            <input name="passLength" type="text">
+            <input name="passLength" type="text" placeholder="20">
             
             <label for="charsToExclude">Characters to exclude when generating:</label>
-            <input name="charsToExclude" type="text">
+            <input name="charsToExclude" type="text" placeholder="$/[]123Abc.:;_">
     
             <button id="genPassBtn" type="button">Generate password</button>
         </form>
