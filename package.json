@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "safe-pass-gen": "^1.0.0",
     "uuid": "^10.0.0"
   }
 }
