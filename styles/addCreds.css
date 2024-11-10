@@ -129,6 +129,20 @@ input.error {
     background-color: #6666ff;
 }
 
+form div.checkbox-container {
+    display: flex;
+    margin-bottom: 10px;
+    label, input, p {
+        display: inline;
+        margin: 0;
+        padding-right: 10px;
+    }
+    p {
+        margin-left: 20px;
+        color: #ccccff21;
+    }
+}
+
 @media (max-width: 500px) {
     h1 {
         font-size: 1.8rem;
