@@ -10,6 +10,7 @@ async function manageMainFuncs(app, win) {
     ipcCredentials.deleteCredsByIdHandler();
     ipcCredentials.fetchCredsByIdHandler();
     ipcCredentials.sendCorrectionForCredsByIdHandler();
+    ipcCredentials.generatePasswordHandler();
 }
 
 module.exports = {

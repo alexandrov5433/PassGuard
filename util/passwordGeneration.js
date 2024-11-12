@@ -1,7 +1,6 @@
-import { generatePassword as genPass} from "safe-pass-gen";
+const { generatePassword } = require('safe-pass-gen');
 
-
-export default function generatePass(options = {
+const defaultPassSettings = {
     passLength: 20,
     lowercase: true,
     uppercase: true,
@@ -9,8 +8,22 @@ export default function generatePass(options = {
     symbols: true,
     excludeSimilars: false,
     charsToExclude: ''
-}) {
-    let pass = genPass(
+};
+const charLibrary = {
+    lowercase: "abcdefghijklmnopqrstuvwxyz",
+    uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    digits: "0123456789",
+    symbols: "!@#$%^&*()_-+=[]{}|:;\"<>,.?/~",
+    excludeSimilars: "0O1Il5S"
+};
+
+function generatePass(options) {
+    if (!options) {
+        options = defaultPassSettings;
+    }
+    console.log(options);
+    
+    let pass = generatePassword(
         options.passLength,
         {
             lowercase: options.lowercase,
@@ -21,26 +34,33 @@ export default function generatePass(options = {
         }
     );
     if (options.charsToExclude != '') {
-        pass = excludeChars(pass, options.charsToExclude);
+        pass = excludeChars(pass, options);
     }
+    console.log(`pass: ${pass} length: ${pass.length}`);
     return pass;
 }
 
-// {
-//     "passLength": "23",
-//     "lowercase": "on",
-//     "uppercase": "on",
-//     "digits": "on",
-//     "symbols": "on",
-//     "excludeSimilars": "on",
-//     "charsToExclude": "v['io"
-// }
-
-function excludeChars(strToProcess, strOfCharsToExclude) {
+function excludeChars(strToProcess, options) {
     let str = strToProcess;
-    const charsToExclude = strOfCharsToExclude.split('') || [];
+    let newCharSet = '';
+    for (let [k, chars] of Object.entries(charLibrary)) {
+        if (k === 'excludeSimilars' && options[k] === true) {
+            continue;
+        }
+        if (options[k] === false) {
+            continue;
+        }
+        const regex = new RegExp(`[${options.charsToExclude}]`, 'g');
+        newCharSet =+ chars.replaceAll(regex, '');
+    }
+    const charsToExclude = options.charsToExclude.split('') || [];
     charsToExclude.forEach(c => {
-        str = str.replaceAll(c, '');
+        const randomIndex = Math.floor(Math.random() * newCharSet.length);
+        str = str.replaceAll(c, newCharSet[randomIndex]);
     });
+    // console.log(`str: ${str} length: ${str.length}`);
+    
     return str;
 }
+
+module.exports = generatePass;
