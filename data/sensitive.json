@@ -8,25 +8,5 @@
       "iv": "JjFdrtxMaK3X3/21",
       "tag": "R+ex504pKDIXcNIS+wAq2g=="
     }
-  },
-  {
-    "id": "557c78a7-91e4-4732-83af-173f87a89bce",
-    "title": "www.somewebsite.com",
-    "username": "user23334",
-    "password": {
-      "value": "u7DtCMD8FXrGng4bt/c=",
-      "iv": "IfwKAtTnx2QIiKYa",
-      "tag": "MDA7t0dEhPA692tiyUA5Zg=="
-    }
-  },
-  {
-    "id": "865a892d-31ea-4d7e-8c74-8da91a4f1d60",
-    "title": "www.fotoSite.com",
-    "username": "toto34",
-    "password": {
-      "value": "PvYWpMYQmbq37nbzG8Owx7Kd5LU=",
-      "iv": "ixxs1uBs9zg2/RtI",
-      "tag": "bykGHuZSyWze7bjSxLVliA=="
-    }
   }
 ]

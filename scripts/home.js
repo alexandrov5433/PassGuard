@@ -86,17 +86,53 @@ async function writeToClipboard(e) {
 }
 
 async function deleteCredentials(e) {
-    const div = e.currentTarget.parentElement.parentElement;
-    const credId = div.dataset.credid;
+    const divClassCred = e.currentTarget.parentElement.parentElement;
+    const divClassActions = e.currentTarget.parentElement;
+    const credId = divClassCred.dataset.credid;
+    for (const child of divClassActions.children) {
+        if (child.classList.contains('general')) {
+            child.style.display = 'none';
+        }
+    }
+    const confirmDeleteBtn = document.createElement('button');
+    confirmDeleteBtn.setAttribute('type', 'button');
+    confirmDeleteBtn.classList.add('deleting', 'important-btn');
+    confirmDeleteBtn.textContent = 'Confirm deletion';
+    confirmDeleteBtn.addEventListener('click', (e) => {
+        execDeleteCredentials(e, divClassCred, credId);
+    });
+    const cancelDeleteBtn = document.createElement('button');
+    cancelDeleteBtn.setAttribute('type', 'button');
+    cancelDeleteBtn.classList.add('deleting');
+    cancelDeleteBtn.textContent = 'Cancel';
+    cancelDeleteBtn.addEventListener('click', (e) => {
+        cancelDeletion(e, divClassActions);
+    });
+    divClassActions.append(confirmDeleteBtn, cancelDeleteBtn);
+}
+
+async function execDeleteCredentials(e, divClassCred, credId) {
     try {
         const res = await preloads.deleteCredsById(credId);
-        div.parentElement.remove();
+        divClassCred.remove();
         console.log(res);
     } catch (err) {
         console.error(err);
         displayErrorMsg(err.message);
         setTimeout(() => hideErrorMsg(), 6500);
     }
+}
+
+function cancelDeletion(e, divClassActions) {
+    for (const child of divClassActions.children) {
+        if (child.classList.contains('general')) {
+            child.style.display = 'block';
+        }
+        if (child.classList.contains('deleting')) {
+            child.remove();
+        }
+    }
+    e.currentTarget.remove();
 }
 
 function genLiElement() {
