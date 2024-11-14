@@ -9,13 +9,6 @@ const defaultPassSettings = {
     excludeSimilars: false,
     charsToExclude: ''
 };
-const charLibrary = {
-    lowercase: "abcdefghijklmnopqrstuvwxyz",
-    uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-    digits: "0123456789",
-    symbols: "!@#$%^&*()_-+=[]{}|:;\"<>,.?/~",
-    excludeSimilars: "0O1Il5S"
-};
 
 function passwordGenerator(options) {
     if (!options) {
