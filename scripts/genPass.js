@@ -1,20 +1,21 @@
 const passGenForm = document.querySelector('#passGenForm');
 const genPassBtn = document.querySelector('#genPassBtn');
 const passwordInput = document.querySelector('#password');
-// const errorMsgEl = document.querySelector('#errorMsg');
-// const defaultPassSettings = {
-//     passLength: 20,
-//     lowercase: true,
-//     uppercase: true,
-//     digits: true,
-//     symbols: true,
-//     excludeSimilars: true,
-//     charsToExclude: ''
-// };
+const errorMsgElGenPass = document.querySelector('#errorMsg');
+
+const lowercaseCheckbox = document.querySelector('#lowercase');
+const uppercaseCheckbox = document.querySelector('#uppercase');
+const digitsCheckbox = document.querySelector('#digits');
+const symbolsCheckbox = document.querySelector('#symbols');
 
 genPassBtn.addEventListener('click', generatePass);
 
 async function generatePass(e) {
+    if (!isOneUseCheckboxChecked()) {
+        displayErrorMsg('At least one checkbox for characters to use must be checked.', errorMsgElGenPass);
+        return;
+    };
+    hideErrorMsg(errorMsgElGenPass);
     const passSettings = Object.fromEntries(new FormData(passGenForm));
     const newSettings = {
         passLength: null,
@@ -25,7 +26,6 @@ async function generatePass(e) {
         excludeSimilars: null,
         charsToExclude: null
     };
-    // console.log('passSettings', passSettings);
     for (let [k, v] of Object.entries(passSettings)) {
         if (k === 'charsToExclude') {
             newSettings[k] = passSettings[k];
@@ -41,16 +41,31 @@ async function generatePass(e) {
             newSettings[k] = false;
         }
     }
-    // console.log('newSettings', newSettings);
     const newPass = await preloads.generatePassword(newSettings);
-    console.log(newPass);
     passwordInput.value = newPass;
 }
 
-passLength
-lowercase
-uppercase
-digits
-symbols
-excludeSimilars
-charsToExclude
+function displayErrorMsg(msg, errorMsgEl) {
+    errorMsgEl.style.display = 'block';
+    errorMsgEl.textContent = msg;
+}
+
+function hideErrorMsg(errorMsgEl) {
+    errorMsgEl.style.display = 'none';
+    errorMsgEl.textContent = '';
+}
+
+function isOneUseCheckboxChecked() {
+    let isOneChecked = false;
+    [
+        lowercaseCheckbox,
+        uppercaseCheckbox,
+        digitsCheckbox,
+        symbolsCheckbox
+    ].forEach( box => {
+        if (box.checked === true) {
+            isOneChecked = true;
+        }
+    });
+    return isOneChecked;
+}

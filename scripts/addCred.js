@@ -1,19 +1,18 @@
 const addCredForm = document.querySelector('#addCredForm');
 const addCredBtn = document.querySelector('#addCredBtn');
-const errorMsgEl = document.querySelector('#errorMsg');
+const errorMsgElAddCreds = document.querySelector('#errorMsg');
 
 addCredBtn.addEventListener('click', async () => {
     const creds = Object.fromEntries(new FormData(addCredForm));
     const errors = generalValidation(creds);
     if (errors) {
         inputErrorClassToggle(errors);
-        errorMsgEl.style.display = 'block';
-        errorMsgEl.textContent = 'Please fill out all fields.';
+        displayErrorMsg('Please fill out all fields.', errorMsgElAddCreds);
         return;
     }
-    console.log(creds);
-    
-    // preloads.addCreds(creds); TODO temp comment out for testing
+    hideErrorMsg(errorMsgElAddCreds);
+    inputErrorClassToggle(null);
+    preloads.addCreds(creds);
 });
 
 
@@ -49,3 +48,14 @@ function inputErrorClassToggle(errors) {
 }
 
 console.log('addCred.js initiated');
+
+
+function displayErrorMsg(msg, errorMsgEl) {
+    errorMsgEl.style.display = 'block';
+    errorMsgEl.textContent = msg;
+}
+
+function hideErrorMsg(errorMsgEl) {
+    errorMsgEl.style.display = 'none';
+    errorMsgEl.textContent = '';
+}
