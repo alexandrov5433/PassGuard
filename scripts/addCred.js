@@ -13,7 +13,7 @@ addCredBtn.addEventListener('click', async () => {
     }
     console.log(creds);
     
-    preloads.addCreds(creds);
+    // preloads.addCreds(creds); TODO temp comment out for testing
 });
 
 

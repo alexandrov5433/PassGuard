@@ -131,6 +131,7 @@ input.error {
 
 form div.checkbox-container {
     display: flex;
+    align-items: center;
     margin-bottom: 10px;
     label, input, p {
         display: inline;

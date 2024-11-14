@@ -1,5 +1,6 @@
 const passGenForm = document.querySelector('#passGenForm');
 const genPassBtn = document.querySelector('#genPassBtn');
+const passwordInput = document.querySelector('#password');
 // const errorMsgEl = document.querySelector('#errorMsg');
 // const defaultPassSettings = {
 //     passLength: 20,
@@ -43,7 +44,7 @@ async function generatePass(e) {
     // console.log('newSettings', newSettings);
     const newPass = await preloads.generatePassword(newSettings);
     console.log(newPass);
-    
+    passwordInput.value = newPass;
 }
 
 passLength
