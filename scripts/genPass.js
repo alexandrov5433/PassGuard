@@ -8,6 +8,13 @@ const uppercaseCheckbox = document.querySelector('#uppercase');
 const digitsCheckbox = document.querySelector('#digits');
 const symbolsCheckbox = document.querySelector('#symbols');
 
+const charLib = {
+    lowercase: 'abcdefghijklmnopqrstuvwxyz',
+    uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    digits: '0123456789',
+    symbols: '!@#$%^&*()_-+=[]{}|:;\"<>,.?/~'
+};
+
 genPassBtn.addEventListener('click', generatePass);
 
 async function generatePass(e) {
@@ -41,8 +48,15 @@ async function generatePass(e) {
             newSettings[k] = false;
         }
     }
+    if (newSettings.charsToExclude != '') {
+        if (areAllCharsToUseExcluded(newSettings)) {
+            displayErrorMsg('Can not exclude all characters to use.', errorMsgElGenPass);
+            return;
+        }
+    }
     const newPass = await preloads.generatePassword(newSettings);
     passwordInput.value = newPass;
+    lightUpPasswordInput();
 }
 
 function displayErrorMsg(msg, errorMsgEl) {
@@ -68,4 +82,29 @@ function isOneUseCheckboxChecked() {
         }
     });
     return isOneChecked;
+}
+
+function lightUpPasswordInput() {
+    passwordInput.classList.add('password-incerted');
+    setTimeout(() => {
+        passwordInput.classList.remove('password-incerted');
+    }, 401);
+}
+
+function areAllCharsToUseExcluded(newSettings) {
+    let charToUse = '';
+    [
+        'lowercase',
+        'uppercase',
+        'digits',
+        'symbols'
+    ].forEach( chars => {
+        if (newSettings[chars] === true) {
+            charToUse = charToUse + charLib[chars];
+        }
+    });
+    [...(newSettings.charsToExclude || '')].forEach(c => {
+        charToUse = charToUse.replaceAll(c, ''); 
+    });
+    return charToUse.length <= 0 ? true : false;
 }

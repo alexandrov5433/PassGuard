@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PassGuard</title>
-    <!-- <script src="../scripts/development.js" defer></script> -->
     <script src="../scripts/nav.js" defer></script>
     <script src="../scripts/logout.js" defer></script>
     <script src="../scripts/addCred.js" defer></script>
@@ -42,10 +41,11 @@
             <input name="password" id="password" type="text" placeholder="secretPassword123">
             
             <button type="button" id="addCredBtn">Add Credential</button>
+            <button id="genPassBtn" type="button">Generate password</button>
         </form>
         <!-- Form for password generation -->
         <form id="passGenForm" class="form">
-            <label for="passLength" class="secondTitles">Generate random password</label>
+            <label for="passLength" class="secondTitles">Password generation settings</label>
 
             <label for="passLength">Length:</label>
             <input name="passLength" type="text" placeholder="20" id="passLength">
@@ -83,7 +83,6 @@
             <label for="charsToExclude">Characters to exclude when generating:</label>
             <input name="charsToExclude" id="charsToExclude" type="text" placeholder="$/[]123Abc.:;_">
     
-            <button id="genPassBtn" type="button">Generate password</button>
         </form>
     </div>
 

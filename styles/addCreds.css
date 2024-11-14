@@ -123,6 +123,11 @@ input.error {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+
+}
+
+#genPassBtn {
+    margin-left: 1rem;
 }
 
 .form button:hover {
@@ -165,7 +170,7 @@ form div.checkbox-container {
 
 #addingCredsContainer {
     position: absolute;
-    top: 160px; /* Adds the same space as between h1 and nav */
+    top: 140px;
     left: 20px;
     right: 20px;
     bottom: 20px;
@@ -189,3 +194,19 @@ form div.checkbox-container {
     color: #ff8b77;
     font-size: 25px;
 }
+
+/* Generated password incerted into #password input */
+.password-incerted {
+    -webkit-animation: glowing 500ms 1;
+    animation: glowing 400ms 1;
+}
+@keyframes glowing {
+  0% { background-color: rgba(255, 99, 71, 0.25); box-shadow: 0 0 3px #B20000; }
+  50% { background-color: rgba(255, 99, 71, 0.5); box-shadow: 0 0 40px rgb(255, 99, 71); }
+  100% { background-color: rgba(255, 99, 71, 0.25); box-shadow: 0 0 3px #B20000; }
+}
+@-webkit-keyframes glowing {
+    0% { background-color: rgba(255, 99, 71, 0.25); -webkit-box-shadow: 0 0 3px #B20000; }
+    50% { background-color: rgba(255, 99, 71, 0.5); -webkit-box-shadow: 0 0 40px rgb(255, 99, 71); }
+    100% { background-color: rgba(255, 99, 71, 0.25); -webkit-box-shadow: 0 0 3px #B20000; }
+  }
