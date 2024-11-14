@@ -36,7 +36,7 @@ function generatePass(options) {
 
 function excludeChars(strToProcess, options) {
     let str = strToProcess;
-    const newCharSet = [...generatePassword(
+    let newCharSet = generatePassword(
         256,
         {
             lowercase: options.lowercase,
@@ -45,8 +45,14 @@ function excludeChars(strToProcess, options) {
             symbols: options.symbols,
             excludeSimilars: options.excludeSimilars
         }
-    )];
+    );
     const charsToExclude = options.charsToExclude.split('') || [];
+    charsToExclude.forEach(c => {
+        while (newCharSet.includes(c)) {
+            // const randomIndex = Math.floor(Math.random() * newCharSet.length);
+            newCharSet = newCharSet.replace(c, '');
+        }
+    });
     charsToExclude.forEach(c => {
         while (str.includes(c)) {
             const randomIndex = Math.floor(Math.random() * newCharSet.length);
