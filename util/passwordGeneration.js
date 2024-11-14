@@ -14,9 +14,7 @@ function passwordGenerator(options) {
     if (!options) {
         options = defaultPassSettings;
     }
-    // console.log(options);
     let pass = generatePass(options);
-    console.log(`pass: ${pass} length: ${pass.length}`);
     if (options.charsToExclude != '') {
         pass = excludeChars(pass, options);
     }
@@ -48,7 +46,6 @@ function excludeChars(strToProcess, options) {
             excludeSimilars: options.excludeSimilars
         }
     )];
-    console.log('newCharSet: ', newCharSet);
     const charsToExclude = options.charsToExclude.split('') || [];
     charsToExclude.forEach(c => {
         while (str.includes(c)) {
