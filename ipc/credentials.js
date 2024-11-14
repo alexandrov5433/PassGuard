@@ -1,6 +1,6 @@
 const { ipcMain } = require('electron');
 const { getCredentialsOverview, saveNewCredentials, getCredentialsById, deleteCredentialsById, editCredentialsById } = require('../data/dataService.js');
-const generatePass = require('../util/passwordGeneration.js');
+const passwordGenerator = require('../util/passwordGeneration.js');
 
 const ipcCredentials = {
     credOverviewReqHandler: function () {
@@ -56,7 +56,7 @@ const ipcCredentials = {
     },
     generatePasswordHandler: function () {
         ipcMain.handle('passwordGeneration', (e, passSettings) => {
-            return generatePass(passSettings);
+            return passwordGenerator(passSettings);
         });
     }
 };
