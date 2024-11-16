@@ -10,8 +10,6 @@ navToAddCred.addEventListener('click', () => {
     preloads.navTo('addCred');
 });
 
-navToSettings.addEventListener('click', () => {
-    preloads.navTo('settings');
-});
-
-console.log('nav.js initiated');
+// navToSettings.addEventListener('click', () => {
+//     preloads.navTo('settings');
+// });

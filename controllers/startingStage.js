@@ -14,10 +14,8 @@ async function initViews(app) {
     }
     ipcUserAccount.loginHandler(win, pathViews);
     ipcUserAccount.registrationHandler(win, pathViews);
-    // win.webContents.openDevTools(); //TODO remove
     ipcGeneral.navigationHandler(win, pathViews);
     ipcGeneral.devToolsToggle(win); //TODO remove
-    ipcGeneral.pingHandler(); //TODO remove
     // app.on('activate', () => {
     //     if (BrowserWindow.getAllWindows().length === 0) {
     //         createWindow()

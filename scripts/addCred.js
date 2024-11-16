@@ -47,9 +47,6 @@ function inputErrorClassToggle(errors) {
     });   
 }
 
-console.log('addCred.js initiated');
-
-
 function displayErrorMsg(msg, errorMsgEl) {
     errorMsgEl.style.display = 'block';
     errorMsgEl.textContent = msg;

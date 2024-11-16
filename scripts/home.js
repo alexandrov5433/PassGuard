@@ -2,7 +2,6 @@ const credListCnt = document.querySelector('#credentials-container');
 const errorMsgEl = document.querySelector('#errorMsg');
 
 loadCredOverview();
-console.log('credentialsOverview.js initiated');
 
 async function loadCredOverview() {
     const creds = await preloads.credOverviewReq();

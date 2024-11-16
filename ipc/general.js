@@ -11,20 +11,20 @@ const ipcGeneral = {
             return 'openDevTools';
         });
     },
-    pingHandler: function () {
-        ipcMain.handle('ping', () => 'pongggg');
-    },
     navigationHandler: function (win, pathViews) {
         ipcMain.on('navTo', (e, view) => {
             if (view === 'home') {
                 win.loadFile(pathViews.home);
             } else if (view === 'addCred') {
                 win.loadFile(pathViews.addCred);
-            } else if (view === 'settings') {
-                win.loadFile(pathViews.settings);
             } else {
                 return;
             }
+            // } else if (view === 'settings') {
+            //     win.loadFile(pathViews.settings);
+            // } else {
+            //     return;
+            // }
         });
     },
 

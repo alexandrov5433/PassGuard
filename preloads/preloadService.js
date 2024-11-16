@@ -15,6 +15,3 @@ contextBridge.exposeInMainWorld('preloads', {
 	sendCorrectionForCredsById: (credId, data) => ipcRenderer.invoke('sendCorrectionForCredsById', credId, data),
 	generatePassword: (passSettings) => ipcRenderer.invoke('passwordGeneration', passSettings)
 });
-
-
-console.log('preloadService.js initiated');
