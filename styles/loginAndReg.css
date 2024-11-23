@@ -80,6 +80,10 @@ button:hover {
     background-color: #6666ff;
 }
 
+button.hide {
+    display: none;
+}
+
 /* Align Ping and Dev Tools buttons vertically below the form */
 /* #pingBtn, #devToolsBtn {
     width: 100%;
