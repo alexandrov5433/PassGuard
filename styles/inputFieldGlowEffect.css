@@ -1,0 +1,15 @@
+/* Generated password incerted into #password input */
+.password-incerted {
+    -webkit-animation: glowing 500ms 1;
+    animation: glowing 400ms 1;
+}
+@keyframes glowing {
+  0% { background-color: rgba(255, 99, 71, 0.25); box-shadow: 0 0 3px #B20000; }
+  50% { background-color: rgba(255, 99, 71, 0.5); box-shadow: 0 0 40px rgb(255, 99, 71); }
+  100% { background-color: rgba(255, 99, 71, 0.25); box-shadow: 0 0 3px #B20000; }
+}
+@-webkit-keyframes glowing {
+    0% { background-color: rgba(255, 99, 71, 0.25); -webkit-box-shadow: 0 0 3px #B20000; }
+    50% { background-color: rgba(255, 99, 71, 0.5); -webkit-box-shadow: 0 0 40px rgb(255, 99, 71); }
+    100% { background-color: rgba(255, 99, 71, 0.25); -webkit-box-shadow: 0 0 3px #B20000; }
+  }
