@@ -1,18 +1,19 @@
 const loginForm = document.querySelector('#loginForm');
 const loginBtn = document.querySelector('#loginBtn');
 const errorMsgEl = document.querySelector('#errorMsg');
+const loader = document.querySelector('div.loader-container');
 
 loginBtn.addEventListener('click', async () => {
+    toggleLoaderAndLoginBtn();
     const formData = Object.fromEntries(new FormData(loginForm));
     console.log(formData);
     const errors = generalValidation(formData);
     inputErrorClassToggle(errors);
     if (Object.keys(errors).length) {
+        toggleLoaderAndLoginBtn();
         errorMsgEl.textContent = genErrMsg(errors);
         return;
     } 
-
-
     const res = await preloads.login(formData);
     if (res.success === false) {
         errorMsgEl.textContent = res.msg;
@@ -20,6 +21,7 @@ loginBtn.addEventListener('click', async () => {
     } else if (res instanceof Error) {
         errorMsgEl.textContent = res.message;
     }
+    toggleLoaderAndLoginBtn();
     console.log(res);
 });
 
@@ -51,4 +53,9 @@ function inputErrorClassToggle(errors) {
             f.classList.remove('error');
         }
     });   
+}
+
+function toggleLoaderAndLoginBtn() {
+    loader.classList.toggle('hide');
+    loginBtn.classList.toggle('hide');
 }
