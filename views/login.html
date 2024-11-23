@@ -7,6 +7,7 @@
     <script src="../scripts/development.js" defer></script>
     <script src="../scripts/login.js" defer></script>
     <link rel="stylesheet" href="../styles/loginAndReg.css">
+    <link rel="stylesheet" href="../styles/loader.css">
 </head>
 <body>
     <div id="container">
@@ -17,6 +18,9 @@
             <label for="password">Password:</label>
             <input name="password" type="password" id="password">
             <button type="button" id="loginBtn">Login</button>
+            <div class="loader-container hide">
+                <span class="loader"></span>
+            </div>
         </form>
         <div class="err-container">
             <p id="errorMsg"></p>
